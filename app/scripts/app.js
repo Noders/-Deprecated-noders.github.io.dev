@@ -9,45 +9,49 @@
  * Main module of the application.
  */
 angular
-  .module('nodersApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap',
-    'uiGmapgoogle-maps'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/slack', {
-        templateUrl: 'views/slack.html',
-        controller: 'SlackCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/noders', {
-        templateUrl: 'views/noders.html',
-        controller: 'NodersCtrl'
-      })
-      .when('/noders', {
-        templateUrl: 'views/noders.html',
-        controller: 'NodersCtrl'
-      })
-      .when('/partners', {
-        templateUrl: 'views/partners.html',
-        controller: 'PartnersCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .module('nodersApp', [
+        'ngAnimate',
+        'ngAria',
+        'ngCookies',
+        'ngMessages',
+        'ngResource',
+        'ngSanitize',
+        'ngTouch',
+        'ui.bootstrap',
+        'ui.router',
+        'uiGmapgoogle-maps'
+    ])
+    .config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+        $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            .state('slack', {
+                url: '/slack',
+                templateUrl: 'views/slack.html',
+                controller: 'SlackCtrl'
+            })
+            .state('about', {
+                url: '/about',
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
+            })
+            .state('noders', {
+                url: '/noders',
+                templateUrl: 'views/noders.html',
+                controller: 'NodersCtrl'
+            })
+            .state('partners', {
+                url: '/partners',
+                templateUrl: 'views/partners.html',
+                controller: 'PartnersCtrl'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'views/auth/login.html',
+                controller: 'PartnersCtrl'
+            });
+    });
