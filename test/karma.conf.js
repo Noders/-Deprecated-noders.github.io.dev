@@ -38,6 +38,11 @@ module.exports = function(config) {
       'bower_components/moment/moment.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-growl-v2/build/angular-growl.js',
+      'bower_components/jquery-ui/jquery-ui.js',
+      'bower_components/metisMenu/dist/metisMenu.js',
+      'bower_components/slimScroll/jquery.slimscroll.min.js',
+      'bower_components/pace/pace.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

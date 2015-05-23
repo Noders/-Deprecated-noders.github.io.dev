@@ -19,6 +19,7 @@ angular
         'ngTouch',
         'ui.bootstrap',
         'ui.router',
+        'NodersAPI',
         'uiGmapgoogle-maps'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
@@ -52,6 +53,18 @@ angular
             .state('login', {
                 url: '/login',
                 templateUrl: 'views/auth/login.html',
-                controller: 'PartnersCtrl'
+                controller: 'AuthCtrl'
+            })
+            .state('perfil', {
+                url: '/perfil',
+                templateUrl: 'views/auth/perfil.html',
+                controller: 'AuthCtrl'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'views/auth/register.html',
+                controller: 'AuthCtrl'
             });
+    }).run(function($rootScope, $state) {
+        $rootScope.$state = $state;
     });
